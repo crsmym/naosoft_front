@@ -16,7 +16,7 @@
 .nav .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 21px 0;
+  padding: 18px 0;
   justify-items: center;
   align-items: center;
 }
@@ -156,14 +156,18 @@
   background-color: #f5f7fa;
 }
 .service_slide {
-  margin: 20px -18% 0;
+  margin: 20px 0;
 }
 .service_slide .slide_item .img_wrap {
-  width: 55%;
+  width: 50%;
+}
+.service_slide .slide_item .img_wrap img {
+  margin-left: auto;
+  width: 100%;
 }
 .service_slide .slide_item .desc {
-  width: 45%;
-  padding: 20px 0 0 32px;
+  width: 50%;
+  padding: 20px 15px 0 25px;
 }
 .service_slide .slide_item .desc .icon {
   max-width: 35px;
@@ -178,9 +182,9 @@
   content: '';
   display: block;
   height: 2px;
-  width: 25px;
+  width: 26px;
   background-color: #4ca4d1;
-  left: -32px;
+  left: -26px;
   top: 52%;
 }
 .service_slide .slide_item .desc .info {
@@ -188,8 +192,8 @@
   font-size: 15px;
 }
 .service_slide .slide_item .desc .more {
-  margin-top: 20px;
-  padding: 8px 20px;
+  margin-top: 15px;
+  padding: 7px 20px;
   font-size: 15px;
   display: inline-block;
   color: #017ace;
@@ -205,20 +209,19 @@
   border: 0;
   background: none;
   text-indent: -9999px;
-  padding: 25px;
+  padding: 20px 25px;
   outline: none;
   cursor: pointer;
+  top: 80%;
 }
 .service_slide .slick-prev {
   position: absolute;
-  top: 76%;
-  left: 53%;
+  left: 55%;
   background: url(../images/service/slide_l.png) center no-repeat;
 }
 .service_slide .slick-next {
   position: absolute;
-  top: 76%;
-  left: 58%;
+  left: 60%;
   background: url(../images/service/slide_r.png) center no-repeat;
 }
 /*------ end section service area -----*/
@@ -261,15 +264,131 @@
 /*------ end section solution area -----*/
 
 /*------ section history area -----*/
-.history .wrap .history_visual {
-  width: 50%;
+.history .wrap .inner {
   background: url(../images/history/history_visual.png) center no-repeat;
   background-size: cover;
 }
-.history .wrap .slide_container {
+.history .wrap .history_visual {
   width: 50%;
 }
 .history .wrap .slide_container {
+  background-color: rgba(225,225,225,0.75);
   width: 50%;
+}
+.history .wrap .slide_container .slide_wrap {
+  padding: 70px 0 70px 100px;
+  margin-right: auto;
+}
+
+.history_list {
+  position: relative;
+  padding: 67px 0;
+}
+.history_item::after {
+  position: absolute;
+  top: 45px;
+  left: 12px;
+  content: '';
+  display: block;
+  background-color: #6d6d6d;
+  height: 100%;
+  width: 1px;
+}
+.history_list .slick-arrow {
+  position: absolute;
+  border: 0;
+  background: none;
+  text-indent: -99999px;
+  padding: 20px 25px;
+  z-index: 9888;
+  left: -13px;
+  outline: none;
+}
+.history_list .slick-prev {
+  background: url(../images/history/top.png) center no-repeat;
+  background-size: 27px;
+  top: -40px;
+}
+.history_list .slick-next {
+  background: url(../images/history/down.png) center no-repeat;
+  background-size: 27px;
+  bottom: -40px;
+}
+.history_item {
+  padding: 40px 0 30px 35px;
+}
+.history_item .year {
+  position: relative;
+  font-size: 21.5px;
+  font-weight: bold;
+  color: #4796bf;
+}
+.history_item .year::after {
+  position: absolute;
+  top: 8px;
+  left: -28px;
+  z-index: 1111;
+  width: 9px;
+  height: 9px;
+  content: '';
+  display: block;
+  background-color: #4796bf;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.history_item .content {
+  padding-bottom: 15px;
+  font-size: 15.5px;
+  line-height: 1.58;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #3b3b3b;
 }
 /*------ end section history area -----*/
+
+/*------ section client area -----*/
+.client .wrap {
+  padding: 100px 0;
+}
+.client .wrap .section_title {
+  text-align: center;
+}
+.client .wrap .slide_container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.clients ul {
+  flex-wrap: wrap;
+}
+.clients ul li {
+  width: 33.333333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clients ul li img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 17px 0;
+  vertical-align: middle;
+}
+/*------ end section client area -----*/
+
+/*------ footer area -----*/
+#footer {
+  padding: 20px 0;
+  background: #181818;
+}
+
+#footer .copyright {
+  font-size: 14.5px;
+  font-weight: 300;
+  text-align: center;
+  color: #b8b8b8;
+}
+/*------ end footer area -----*/
