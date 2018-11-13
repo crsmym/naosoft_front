@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+*, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6,ul,li,p {
+  margin: 0;
+  padding: 0;
+}
+
+ul,li {
+  list-style-type: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* css modules */
+
+.cf {
+  display: table;
+  content: '';
+  clear: both;
+}
+
+.flex_box {
+  display: flex;
+}
+
+.flex_box.row {
+  flex-direction: row;
+}
+

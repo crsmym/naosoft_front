@@ -4,9 +4,321 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/script.js"></script>
   <title>나오소프트</title>
 </head>
 <body>
-  
+  <div id="nao_app">
+    <!-- header -->
+    <div id="header">
+      <nav class="nav">
+        <div class="wrap flex_box row">
+          <h1 class="header_logo">
+            <a href="#">
+              <img src="images/logo.png" alt="">
+            </a>
+          </h1>
+          <ul class="nav_menu flex_box row">
+            <li class="nav_item"><a href="">about</a></li>
+            <li class="nav_item"><a href="">service</a></li>
+            <li class="nav_item"><a href="">solution</a></li>
+            <li class="nav_item"><a href="">history</a></li>
+            <li class="nav_item"><a href="">client</a></li>
+            <li class="nav_item"><a href="">contact</a></li>
+          </ul>
+          <span class="company_info">
+            <a href="">
+              회사소개서             
+            </a>
+          </span>
+        </div>
+      </nav>
+    </div>
+    <!-- end header -->
+
+    <!-- top visual area -->
+    <div class="top_visual">
+      <div class="wrap">
+        <div class="txt_box">
+          <h2 class="title">
+            Nao is a group of <br> 
+            developers who dream.
+          </h2>
+          <h3 class="sub_title">
+            나오소프트는 꿈을 꾸는 개발자 그룹입니다.
+          </h3>
+        </div>
+        <a href="" id="scroll_btn">
+          <img src="images/scroll_down.png" alt="">
+          <span>scroll</span>
+        </a>
+      </div>
+    </div>
+    <!-- end top visual area -->
+    
+    <!-- main contents -->
+    <div id="main">
+      <div class="container">
+        
+        <!-- section about -->
+        <div class="section about">
+          <div class="wrap">
+            <div class="inner">
+              <div class="flex_box row">
+                <div class="about_img">
+                  <img src="images/about/2.about_img.png" alt="">
+                </div>
+                <div class="about_txt">
+                  <div class="txt_wrap">
+                    <h3 class="section_title">
+                      ABOUT NAO
+                    </h3>
+                    <p class="txt1">
+                      Nao는 소프트웨어 개발, 웹/모바일 구축,<br>
+                      시스템 통합, 교육 서비스에 강점이 있습니다.
+                    </p>
+                    <p class="txt2">
+                      2010년 설립 이후 SI/SM, Mobile, DB 분야의 <br>
+                      국내 최고 리더라는 자부심을 가지고 금융, 서비스, 제조, 통신 등 <br>
+                      다양한 업종의 정보시스템 구축 및 운영을 수행하고 있습니다.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end section about -->
+
+        <!-- section service -->
+        <div class="section service">
+          <div class="wrap">
+            <div class="inner">
+              <div class="slide_container">
+                <h3 class="section_title">
+                  SERVICE
+                </h3>
+                <ul class="service_slide">
+                  <li class="slide_item">
+                    <div class="flex_box">
+                      <div class="img_wrap">
+                        <img class="slide_img" src="images/service/edu.png" alt="">
+                      </div>
+                      <div class="desc">
+                        <img src="images/service/edu_icon.png" alt="" class="icon">
+                        <h4 class="type">SI/SM</h4>
+                        <p class="info">
+                          금융, 제조 등 다양한 정보시스템 구축 <br>
+                          경험을 보유하고 있습니다.
+                        </p>
+                        <a class="more" href="#">자세히 보기</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="slide_item">
+                    <div class="flex_box">
+                      <div class="img_wrap">
+                        <img class="slide_img" src="images/service/ito.png" alt="">
+                      </div>
+                      <div class="desc">
+                        <img src="images/service/ito_icon.png" alt="" class="icon">
+                        <h4 class="type">SI/SM</h4>
+                        <p class="info">
+                          금융, 제조 등 다양한 정보시스템 구축 <br>
+                          경험을 보유하고 있습니다.
+                        </p>
+                        <a class="more" href="#">자세히 보기</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="slide_item">
+                    <div class="flex_box">
+                      <div class="img_wrap">
+                        <img class="slide_img" src="images/service/sism.png" alt="">
+                      </div>
+                      <div class="desc">
+                        <img src="images/service/sism_icon.png" alt="" class="icon">
+                        <h4 class="type">SI/SM</h4>
+                        <p class="info">
+                          금융, 제조 등 다양한 정보시스템 구축 <br>
+                          경험을 보유하고 있습니다.
+                        </p>
+                        <a class="more" href="#">자세히 보기</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="slide_item">
+                    <div class="flex_box">
+                      <div class="img_wrap">
+                        <img class="slide_img" src="images/service/mobile.png" alt="">
+                      </div>
+                      <div class="desc">
+                        <img src="images/service/mobile_icon.png" alt="" class="icon">
+                        <h4 class="type">SI/SM</h4>
+                        <p class="info">
+                          금융, 제조 등 다양한 정보시스템 구축 <br>
+                          경험을 보유하고 있습니다.
+                        </p>
+                        <a class="more" href="#">자세히 보기</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <!-- end section service -->
+        
+        <!-- section solution -->
+        <div class="section solution">
+          <div class="wrap">
+            <div class="inner">
+              <h3 class="section_title">
+                SOLUTION
+              </h3>
+              <ul class="solution_list flex_box">
+                <li class="solution_item">
+                  <a href="#">
+                    <img class="solution_img" src="images/solution/shorten.png" alt="">
+                    <div class="desc">
+                      <h4 class="type">단축 URL</h4>
+                      <p class="info">
+                        복잡하고 긴 URL을 <br>
+                        단순하게 변환하는 솔루션 입니다.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="solution_item">
+                  <a href="#">
+                    <img class="solution_img" src="images/solution/voice.png" alt="">
+                    <div class="desc">
+                      <h4 class="type">Digital Transfer</h4>
+                      <p class="info">
+                        음성을 텍스트로 <br>
+                        변환하는 솔루션 입니다.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <li class="solution_item">
+                  <a href="#">
+                    <img class="solution_img" src="images/solution/privacy.png" alt="">
+                    <div class="desc">
+                      <h4 class="type">개인정보 비식별화</h4>
+                      <p class="info">
+                        식별 가능한 정보를 <br>
+                        비식별 처리하는 솔루션 입니다.
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- end section solution -->
+        
+        <!-- section history -->
+        <div class="section history">
+          <div class="wrap">
+            <div class="inner">
+              <div class="flex_box">
+                <div class="history_visual"></div>
+                <div class="slide_container">
+                  <div class="history_list">
+                    <ul class="history_slide">
+                      <li class="history_item">
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                      </li>
+                      <li class="history_item">
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                      </li>
+                      <li class="history_item">
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                      </li>
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                      </li>
+                        <h5 class="year">2014</h5>
+                        <p class="content">
+                          IBK시스템 전략협력사 선정 <br>
+                          S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end section history -->
+        
+        <!-- section client -->
+        <div class="section client">
+          <div class="wrap">
+            <div class="inner"></div>
+          </div>
+        </div>
+        <!-- end section client -->
+        
+        <!-- section contact -->
+        <div class="section contact">
+          <div class="wrap">
+            <div class="inner"></div>
+          </div>
+        </div>
+        <!-- end section contact -->
+      
+      </div>
+    </div>
+    <!-- end main contents -->
+
+    <!-- footer -->
+    <div id="footer"></div>
+    <!-- end footer -->
+  </div>
 </body>
 </html>
