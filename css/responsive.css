@@ -1,0 +1,186 @@
+.is-mobile {
+  display: none !important;
+}
+@media (max-width:768px) { 
+  .is-desktop {
+    display: none !important;
+  }
+  .is-mobile {
+    display: block !important;
+  }
+}
+/* max-width 768px */
+@media (max-width:768px) {
+  /*----- header area -----*/
+  .nav.is-mobile .wrap {
+    padding: 12px 10px;
+  }
+  .nav.is-mobile .wrap .company_info {
+    width: 25.3333%;
+    margin-left: 0;
+  }
+  .nav.is-mobile .wrap .company_info a {
+    margin-right: auto;
+    border: 0;
+    padding: 0;
+  }
+  .nav.is-mobile .wrap .company_info a img {
+    max-width: 110px;
+    width: 100%;
+  }
+  .nav.is-mobile .wrap .header_logo {
+    width: 61.3333%;
+    margin-right: 0;
+    text-align: center;
+  }
+  .nav.is-mobile .wrap .header_logo a {
+    width: 60%;
+  }
+  .nav.is-mobile .wrap .header_logo a img {
+    max-width: 148px;
+  }
+  .nav.is-mobile .wrap .menu_btn {
+    width: 13.3333%;
+    text-align: right;
+  }
+  .nav.is-mobile .wrap .menu_btn a img {
+    width: 28px;
+  }
+  /*----- end header area -----*/
+
+  /*----- top visual area -----*/
+  .top_visual {
+    background: url(../images/m_top_visual.png) center no-repeat;
+    background-size: cover;
+  }
+  .top_visual .wrap .txt_box .title {
+    font-size: 8vw;
+  }
+  .top_visual .wrap .txt_box .sub_title {
+    font-size: 4vw;
+  }
+  #scroll_btn {
+    top: 88%;
+  }
+  /*----- end top visual area -----*/
+  
+  /*----- about area -----*/
+  .about .wrap {
+    padding: 60px 10px;
+  }
+  /*----- end about area -----*/
+  
+  /*----- service area -----*/
+  .service .wrap .slide_container {
+    padding: 35px 0;
+  }
+  .service_slide .slide_item .flex_box {
+    display: block;
+    padding: 0 15px;
+  }
+  .service_slide .slide_item .flex_box .img_wrap {
+    width: 100%;
+  }
+  .service_slide .slide_item .flex_box .desc {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #fff;
+    text-align: center;
+  }
+  .service_slide .slide_item .desc .icon {
+    display: none;
+  }
+  .service_slide .slide_item .desc .type::before {
+    display: none;
+  }
+  /*----- end service area -----*/
+
+  /*----- solution area -----*/
+  .solution .wrap {
+    padding: 50px 0;
+  }
+  .solution .wrap .solution_list.is-mobile {
+    margin: 20px 0 0;
+  }
+  .solution .wrap .solution_list.is-mobile li {
+    margin: 5px 0;
+  }
+  .solution .wrap .solution_list.is-mobile li a {
+    display: block;
+    cursor: pointer;
+  }
+  .solution .wrap .solution_list.is-mobile li img {
+    vertical-align: bottom;
+  }
+  /*----- end solution area -----*/
+  
+  /*----- history area -----*/
+  .history .wrap .history_visual {
+    display: none;
+  }
+  .history .wrap .slide_container {
+    width: 100%;
+  }
+  .history .wrap .section_title.is-mobile {
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  .history .wrap .slide_container .slide_wrap {
+    padding: 0 0 0 30px;
+  }
+  /*----- end history area -----*/
+
+  /*----- client area -----*/
+  .client .wrap .slide_container {
+    padding: 15px 20px;
+  }
+  /*----- end client area -----*/
+
+  /*----- contact area -----*/
+  .contact .wrap .section_title.is-mobile {
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  .contact_info {
+    padding: 10px 30px 30px 30px;
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    box-shadow: none;
+    background-color: #f8f8f8;
+    transform: translate(0,0)  ;
+    -webkit-transform: translate(0,0)  ;
+    -moz-transform: translate(0,0)  ;
+    -ms-transform: translate(0,0)  ;
+    -o-transform: translate(0,0)  ;
+}
+  .contact_info p {
+    padding-left: 65px;
+  }
+  .contact_info p span:first-child {
+    font-size: 17px;
+    font-weight: 500;
+    padding-bottom: 6px;
+  }
+  .contact_info p span:last-child {
+    color: #000;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .contact_info p.tel {
+    background: url(../images/contact/m_tel_icon.png) left center no-repeat;
+    background-size: 45px;
+  }
+
+  .contact_info p.address {
+    background: url(../images/contact/m_address_icon.png) left center no-repeat;
+    background-size: 45px;
+  }
+
+  .contact_info p.fax {
+    background: url(../images/contact/m_fax_icon.png) left center no-repeat;
+    background-size: 45px;
+  }
+  /*----- end contact area -----*/
+}

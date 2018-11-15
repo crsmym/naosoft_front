@@ -11,19 +11,11 @@ $(function(){
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          centerMode: true,
-          slidesToShow: 1
+          centerPadding: 0,
+          slidesToShow: 1,
+          arrows: false
         }
       },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 1
-        }
-      }
     ]
   })
 
@@ -41,6 +33,12 @@ $(function(){
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: true,
-    focusOnSelect: true
+    focusOnSelect: true,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        arrows: false
+      }
+    }, ]
   })
 })

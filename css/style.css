@@ -21,32 +21,36 @@
   align-items: center;
 }
 .nav .wrap .header_logo {
-  width: 18%;
+  width: 17%;
   margin-right: 4%;
 }
 .header_logo a img {
   max-width: 192px;
+  width: 100%;
 }
 .nav .wrap .nav_menu {
-  width: 58%;
+  width: 60%;
 }
 .nav_menu .nav_item {
   width: 16.66666667%;
   text-align: center;
 }
 .nav_menu .nav_item a {
-  font-size: 19px;
+  font-size: 17px;
   color: #353535;
   text-transform: uppercase;
 }
 .nav .wrap .company_info {
   width: 13%;
-  margin-left: 7%;
+  margin-left: 6%;
   display: block;
   text-align: right;
 }
 .nav .wrap .company_info a {
-  padding: 10px 26px;
+  padding: 10px 0;
+  width: 100%;
+  display: block;
+  text-align: center;
   border: 1px solid #000;
   color: #000;
   font-size: 16px;
@@ -351,7 +355,7 @@
 
 /*------ section client area -----*/
 .client .wrap {
-  padding: 100px 0;
+  padding: 100px 0 60px;
 }
 .client .wrap .section_title {
   text-align: center;
@@ -421,6 +425,62 @@
 }
 /*------ end section client area -----*/
 
+/*------ contact client area -----*/
+.contact .wrap .inner {
+  position: relative;
+}
+.contact_info {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  max-width: 420px;
+  min-width: 320px;
+  width: 30%;
+  padding: 55px 25px;
+  background-color: #46a8d3;
+   box-shadow: 2.5px 4.3px 3px 0px rgba(0, 0, 0, 0.24);
+  transform: translate(0,-50%);
+  -webkit-transform: translate(0,-50%);
+  -moz-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  -o-transform: translate(0,-50%);
+}
+.contact_info .section_title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.contact_info p {
+  padding-left: 42px;
+  margin-top: 30px;
+}
+.contact_info p.tel {
+  background: url(../images/contact/tel_icon.png) left center no-repeat;
+  background-size: 35px;
+}
+.contact_info p.address {
+  background: url(../images/contact/address_icon.png) left center no-repeat;
+  background-size: 35px;
+}
+.contact_info p.fax {
+  background: url(../images/contact/fax_icon.png) left center no-repeat;
+  background-size: 35px;
+}
+.contact_info p span {
+  display: block;
+}
+.contact_info p span:first-child {
+  color: #1b4e5d;
+  font-size: 14px;
+}
+.contact_info p span:last-child {
+  color: #fff;
+  font-size: 15px;
+}
+/*------ end contact client area -----*/
+
 /*------ footer area -----*/
 #footer {
   padding: 20px 0;
@@ -428,7 +488,7 @@
 }
 
 #footer .copyright {
-  font-size: 14.5px;
+  font-size: 16.5px;
   font-weight: 300;
   text-align: center;
   color: #b8b8b8;
