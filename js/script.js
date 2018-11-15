@@ -1,4 +1,5 @@
 $(function(){
+  // for seevice area options
   $('.service_slide').slick({
     infinite: true,
     centerMode: true,
@@ -25,18 +26,21 @@ $(function(){
       }
     ]
   })
+
+  // for history area options
   $('.history_slide').slick({
-    centerMode: true,
     infinite: true,
-    centerPadding: 0,
+    slidesToScroll: 1,
     slidesToShow: 1,
     vertical: true,
-    adaptiveHeight: true
   })
+  
+  // for client area slide options
   $('.client_slide').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: true,
+    focusOnSelect: true
   })
 })

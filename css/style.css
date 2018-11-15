@@ -357,9 +357,51 @@
   text-align: center;
 }
 .client .wrap .slide_container {
-  max-width: 640px;
+  max-width: 840px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px 100px;
+}
+.client .wrap .slide_container .slick-arrow {
+  position: absolute;
+  top: 38%;
+  background: none;
+  border: 0;
+  text-indent: -99999px;
+  padding: 20px 25px;
+}
+.client .wrap .slide_container .slick-prev {
+  background: url(../images/client/btn_l.png) center no-repeat;
+  left: -100px;
+}
+.client .wrap .slide_container .slick-next {
+  background: url(../images/client/btn_r.png) center no-repeat;
+  right: -100px;
+}
+.client .wrap .slide_container .slick-dots {
+  padding-top: 30px;
+  text-align: center;
+}
+.client .wrap .slide_container .slick-dots::after {
+  clear: both;
+  display: table;
+  content: '';
+}
+.client .wrap .slide_container .slick-dots li {
+  width: 11px;
+  height: 11px;
+  margin: 0 5px;
+  display: inline-block;
+  text-indent: -99999px;
+  background: #bfbfbf;
+  border: 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.client .wrap .slide_container .slick-dots li.slick-active {
+  background: #4ca4d1;
 }
 .clients ul {
   flex-wrap: wrap;
