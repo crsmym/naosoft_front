@@ -74,8 +74,9 @@
             </a>
           </h1>
           <span class="menu_btn">
-            <a href="">
-              <img src="images/burger_btn.png" alt="">
+            <a href="#">
+              <img class="open" src="images/burger_btn.png" alt="">
+              <img class="close" src="images/close_btn.png" alt="">
             </a>
           </span>
         </div>
@@ -108,7 +109,7 @@
       <div class="container">
         
         <!-- section about -->
-        <div class="section about">
+        <div id="about" class="section about">
           <div class="wrap">
             <div class="inner">
               <!-- desktop -->
@@ -143,7 +144,7 @@
         <!-- end section about -->
 
         <!-- section service -->
-        <div class="section service">
+        <div id="service" class="section service">
           <div class="wrap">
             <div class="inner">
               <div class="slide_container">
@@ -223,7 +224,7 @@
         <!-- end section service -->
         
         <!-- section solution -->
-        <div class="section solution">
+        <div id="solution" class="section solution">
           <div class="wrap">
             <div class="inner">
               <h3 class="section_title">
@@ -292,7 +293,7 @@
         <!-- end section solution -->
         
         <!-- section history -->
-        <div class="section history">
+        <div id="history" class="section history">
           <div class="wrap">
             <h3 class="section_title is-mobile">
               HISTORY
@@ -346,7 +347,7 @@
         <!-- end section history -->
         
         <!-- section client -->
-        <div class="section client">
+        <div id="client" class="section client">
           <div class="wrap">
             <div class="inner">
               <h3 class="section_title">
@@ -392,7 +393,7 @@
         <!-- end section client -->
         
         <!-- section contact -->
-        <div class="section contact">
+        <div id="contact" class="section contact">
           <div class="wrap">
             <h3 class="section_title is-mobile">
               CONTACT
@@ -434,6 +435,34 @@
       </p>
     </div>
     <!-- end footer -->
+
+    <!-- when the open mobile menu open -->
+    <div id="dim" class="is-mobile"></div>
+    <div id="m_menu_list" class="is-mobile">
+      <ul>
+        <li class="menu_li">
+          <a href="#about">about</a>
+        </li>
+        <li class="menu_li">
+          <a href="#service">service</a>
+        </li>
+        <li class="menu_li">
+          <a href="#solution">solution</a>
+        </li>
+        <li class="menu_li">
+          <a href="#history">history</a>
+        </li>
+        <li class="menu_li">
+          <a href="#client">client</a>
+        </li>
+        <li class="menu_li">
+          <a href="#contact">contact</a>
+        </li>
+      </ul>
+    </div>
+    <a href="#" class="btn_top">
+      <img src="images/top_btn.png" alt="위로가기">
+    </a>
   </div>
 </body>
 </html>

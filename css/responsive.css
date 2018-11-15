@@ -9,6 +9,16 @@
     display: block !important;
   }
 }
+/*  min-width 1200px */
+@media (min-width:1200px) {
+  .service_slide .slide_item .desc .info {
+    font-size: 22px;
+  }
+  .service_slide .slide_item .desc .more {
+    font-size: 20px;
+  }
+}
+
 /* max-width 768px */
 @media (max-width:768px) {
   /*----- header area -----*/
@@ -43,9 +53,18 @@
     width: 13.3333%;
     text-align: right;
   }
-  .nav.is-mobile .wrap .menu_btn a img {
-    width: 28px;
+  .nav.is-mobile .wrap .menu_btn a {
+    max-width: 25px;
+    display: inline-block;
   }
+  .nav.is-mobile .wrap .menu_btn a img {
+  width: 100%;
+  display: block;
+  }
+  .nav.is-mobile .wrap .menu_btn a img.close {
+    display: none;
+  }
+  
   /*----- end header area -----*/
 
   /*----- top visual area -----*/
@@ -90,6 +109,12 @@
   .service_slide .slide_item .desc .icon {
     display: none;
   }
+  .service_slide .slide_item .desc .info {
+    font-size: 4.5vw;
+  }
+  .service_slide .slide_item .desc .more {
+    font-size: 3.5vw;
+  }
   .service_slide .slide_item .desc .type::before {
     display: none;
   }
@@ -115,11 +140,16 @@
   /*----- end solution area -----*/
   
   /*----- history area -----*/
+  .history .wrap .inner {
+    background: url(../images/history/m_history_visual.png) center no-repeat;
+    background-size: cover;
+  }
   .history .wrap .history_visual {
     display: none;
   }
   .history .wrap .slide_container {
     width: 100%;
+    background: none;
   }
   .history .wrap .section_title.is-mobile {
     text-align: center;
@@ -133,6 +163,9 @@
   /*----- client area -----*/
   .client .wrap .slide_container {
     padding: 15px 20px;
+  }
+  .clients ul li img {
+    max-width: 95px;
   }
   /*----- end client area -----*/
 
@@ -183,4 +216,41 @@
     background-size: 45px;
   }
   /*----- end contact area -----*/
+
+  /* mobile menu bar */
+  #dim {
+    position: fixed;
+    top:0;
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 7777;
+  }
+  #m_menu_list {
+    position: fixed;
+    top: 63px;
+    bottom: 0;
+    right: -290px;
+    max-width: 290px;
+    width: 75%;
+    background: #fff;
+    z-index: 8888;
+  }
+  #m_menu_list ul {
+    padding: 20px 0 0 30px;
+  }
+  #m_menu_list ul li {
+    padding: 10px 0;
+  }
+  #m_menu_list ul li a {
+    display: block;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  #m_menu_list ul li a.active {
+    color: #2a7ca8;
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }

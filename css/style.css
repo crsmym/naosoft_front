@@ -40,6 +40,10 @@
   color: #353535;
   text-transform: uppercase;
 }
+.nav_menu .nav_item a:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
 .nav .wrap .company_info {
   width: 13%;
   margin-left: 6%;
@@ -143,7 +147,7 @@
   line-height: 1.6;
 }
 .about_txt .txt_wrap .txt2 {
-  margin-top: 73px;
+  margin-top: 12%;
   padding: 30px 25px;
   line-height: 1.6;
   box-shadow: 0.5px 0.9px 5px 0.1px rgba(0, 0, 0, 0.17);
@@ -193,12 +197,12 @@
 }
 .service_slide .slide_item .desc .info {
   padding-top: 10px;
-  font-size: 15px;
+  font-size: 1.5vw;
 }
 .service_slide .slide_item .desc .more {
-  margin-top: 15px;
-  padding: 7px 20px;
-  font-size: 15px;
+  margin-top: 10%;
+  padding: 2% 8%;
+  font-size: 1.5vw;
   display: inline-block;
   color: #017ace;
   border: 1px solid #017ace;
@@ -492,5 +496,22 @@
   font-weight: 300;
   text-align: center;
   color: #b8b8b8;
+}
+.btn_top {
+  position: fixed;
+  bottom: 40px !important;
+  right: -40px;
+  z-index: 9996;
+  opacity: 0;
+  transition: .3s all ease-in;
+  -webkit-transition: .3s all ease-in;
+  -moz-transition: .3s all ease-in;
+  -ms-transition: .3s all ease-in;
+  -o-transition: .3s all ease-in;
+}
+.btn_top.on {
+  right: 50px;
+  bottom: 120px !important;
+  opacity: 1;
 }
 /*------ end footer area -----*/
