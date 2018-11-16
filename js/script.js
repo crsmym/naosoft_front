@@ -1,5 +1,5 @@
 $(function(){
-  // for seevice area options
+  // for service area slide options
   $('.service_slide').slick({
     infinite: true,
     centerMode: true,
@@ -14,18 +14,22 @@ $(function(){
           slidesToShow: 1,
           centerPadding: 0,
           slidesToShow: 1,
-          arrows: false
+          arrows: false,
+          dots: false,
         }
       },
     ]
   })
+  //for service slide dots custormize
+  $('.service_slide .slick-dots li button').append(' / 4');
 
   // for history area options
   $('.history_slide').slick({
     infinite: true,
-    slidesToScroll: 1,
     slidesToShow: 1,
     vertical: true,
+    verticalSwiping: true,
+    swipe: true,
   })
   
   // for client area slide options
