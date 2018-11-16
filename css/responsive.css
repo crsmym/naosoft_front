@@ -215,6 +215,9 @@
     background: url(../images/contact/m_fax_icon.png) left center no-repeat;
     background-size: 45px;
   }
+  #map {
+    height: 30vh;
+  }
   /*----- end contact area -----*/
 
   /* mobile menu bar */
@@ -252,5 +255,10 @@
     color: #2a7ca8;
     font-weight: bold;
     text-decoration: underline;
+  }
+  .btn_top.on {
+    right: 10px;
+    bottom: 90px !important;
+    opacity: 1;
   }
 }

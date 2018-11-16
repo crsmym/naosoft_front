@@ -6,6 +6,7 @@ $(function(){
     slidesToShow: 1,
     centerPadding: '20%',
     slidesToScroll: 1,
+    dots: true,
     responsive: [
       {
         breakpoint: 768,
@@ -89,4 +90,34 @@ $(function(){
     $('html, body').animate({ scrollTop: 0 }, 500);
     return false;
   });
+
+  // service area popups open
+  $('.service_slide .slide_item .more').click(function(){
+    event.preventDefault();
+    $('#popups_bg').fadeIn(400);
+  })
+  $('.pop_close').click(function(){
+    event.preventDefault();
+    $('#popups_bg').fadeOut(400);
+  })
+
+  // solution area popups open
+  $('.solution_list li a').click(function(){
+    event.preventDefault();
+    $('#popups_bg2').fadeIn(400);
+  })
+  $('.pop_close').click(function () {
+    event.preventDefault();
+    $('#popups_bg2').fadeOut(400);
+  })
+
+  // tab_menu in solution area popups
+  $('#popups2 .tab_list').click(function(){
+    event.preventDefault();
+    var index = $(this).index() + 1;
+    $('#popups2 .tab_list').removeClass('active');
+    $(this).addClass('active');
+    $('#popups2 .tab_cont .cont').removeClass('active');
+    $('#popups2 .tab_cont .cont' + index).addClass('active');
+  })
 })
