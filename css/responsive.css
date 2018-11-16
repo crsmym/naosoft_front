@@ -12,10 +12,25 @@
 /*  min-width 1200px */
 @media (min-width:1200px) {
   .service_slide .slide_item .desc .info {
-    font-size: 22px;
+    font-size: 19px;
   }
   .service_slide .slide_item .desc .more {
     font-size: 20px;
+  }
+}
+/* adjust service slide tool */
+@media (max-width:960px) {
+  .service .wrap .section_title {
+    left: 20px;
+  }
+  .service_slide .slick-prev {
+    left: 5px;
+  }
+  .service_slide .slick-next {
+    left: 105px;
+  }
+  .service_slide .slick-dots {
+    left: 47px;
   }
 }
 

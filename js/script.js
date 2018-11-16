@@ -11,7 +11,6 @@ $(function(){
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
           centerPadding: 0,
           slidesToShow: 1,
           arrows: false,
@@ -26,10 +25,14 @@ $(function(){
   // for history area options
   $('.history_slide').slick({
     infinite: true,
-    slidesToShow: 1,
     vertical: true,
     verticalSwiping: true,
+    adaptiveHeight: true,
+    slidesToShow: 3,
+    slidesToScroll: 1, 
     swipe: true,
+    useTransform: true,
+    cssEase: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
   })
   
   // for client area slide options
