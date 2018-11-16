@@ -289,6 +289,18 @@
 .solution_list .solution_item a {
   display: block;
 }
+.solution_list .solution_item a img {
+  vertical-align: bottom;
+}
+.solution_list .solution_item a img.hover {
+  display: none;
+}
+.solution_list .solution_item a:hover img {
+  display: none;
+}
+.solution_list .solution_item a:hover img.hover {
+  display: block;
+}
 .solution_item a .desc {
   text-align: center;
   padding: 45px 0;
