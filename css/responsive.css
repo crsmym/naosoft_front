@@ -18,6 +18,25 @@
     font-size: 20px;
   }
 }
+/*  max-width 1200px */
+@media (max-width:1200px) {
+  .nav .wrap {
+    padding: 18px 15px;
+  }
+  .nav .wrap .company_info {
+    width: 16%;
+    margin-left: 3%;
+  }
+  .nav .wrap .company_info a {
+    padding: 10px 0 10px 14%;
+    font-size: 15px;
+    text-align: left;
+    background: #4880a1 url(../images/download_btn.png) 87% 44% no-repeat;
+  }
+  .nav .wrap .company_info a:hover {
+    background: url(../images/download_btn_hover.png) 87% 44% no-repeat;
+  }
+}
 /* adjust service slide tool */
 @media (max-width:960px) {
   .about .wrap .inner .about_txt .txt_wrap {
@@ -59,6 +78,9 @@
     margin-right: auto;
     border: 0;
     padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
   }
   .nav.is-mobile .wrap .company_info a img {
     max-width: 110px;

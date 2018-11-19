@@ -50,6 +50,7 @@
   display: block;
   text-align: right;
 }
+
 .nav .wrap .company_info a {
   padding: 10px 0;
   width: 100%;
@@ -59,7 +60,7 @@
   font-size: 16px;
   box-shadow: .5px .9px 5px 0.1px rgba(0, 0, 0, 0.17);
   border: 1px solid #4880a1;
-  background: #4880a1 url(../images/download_btn.png) 127px 10px no-repeat;
+  background: #4880a1 url(../images/download_btn.png) 92% 44% no-repeat;
   border-radius: 21px;  
   -webkit-border-radius: 21px;
   -moz-border-radius: 21px;
@@ -70,7 +71,7 @@
   background: transparent;
   border: 1px solid #000;
   color: #000;
-  background: url(../images/download_btn_hover.png) 127px 10px no-repeat;
+  background: url(../images/download_btn_hover.png) 92% 44% no-repeat;
 }
 /*------ end header area -----*/
 
