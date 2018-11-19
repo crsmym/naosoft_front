@@ -20,6 +20,17 @@
 }
 /* adjust service slide tool */
 @media (max-width:960px) {
+  .about .wrap .inner .about_txt .txt_wrap {
+    width: 100%;    
+  }
+  .about_txt .txt_wrap .txt1 {
+    padding: 25px 0 0 26px;
+    font-size: 20px;
+  }
+  .about_txt .txt_wrap .txt2 {
+    margin-top: 5%;
+    padding: 25px 27px;
+  }
   .service .wrap .section_title {
     left: 20px;
   }
@@ -275,5 +286,23 @@
     right: 10px;
     bottom: 90px !important;
     opacity: 1;
+  }
+  #popups {
+    width: 90%;
+    height: 80%;
+    overflow: scroll;
+    padding: 45px 11px;
+  }
+  #popups2 {
+    width: 90%;
+    height: 80%;
+    overflow: scroll;
+    padding: 45px 11px;
+  }
+  #popups2 .tab_list a {
+    font-size: 3.7vw;
+  }
+  .pop_close img {
+    max-width: 18px;
   }
 }

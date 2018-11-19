@@ -55,14 +55,22 @@
   width: 100%;
   display: block;
   text-align: center;
-  border: 1px solid #000;
-  color: #000;
+  color: #fff;
   font-size: 16px;
-  border-radius: 21px;
+  box-shadow: .5px .9px 5px 0.1px rgba(0, 0, 0, 0.17);
+  border: 1px solid #4880a1;
+  background: #4880a1 url(../images/download_btn.png) 127px 10px no-repeat;
+  border-radius: 21px;  
   -webkit-border-radius: 21px;
   -moz-border-radius: 21px;
   -ms-border-radius: 21px;
   -o-border-radius: 21px;
+}
+.nav .wrap .company_info a:hover {
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+  background: url(../images/download_btn_hover.png) 127px 10px no-repeat;
 }
 /*------ end header area -----*/
 
@@ -330,7 +338,7 @@
   width: 50%;
 }
 .history .wrap .slide_container .slide_wrap {
-  padding: 70px 0 70px 100px;
+  padding: 70px 0 70px 65px;
   margin-right: auto;
 }
 
@@ -585,7 +593,7 @@
   top: 50%;
   left: 50%;
   max-width: 1200px;
-  width: 80%;
+  width: 85%;
   padding: 45px 25px;
   background: #fff;
   transform: translate(-50%,-50%);
@@ -602,6 +610,9 @@
 #popups .main_tit {
   font-size: 27px;
   padding: 8px 0;
+}
+#popups .message {
+  padding-bottom: 20px;
 }
 /* end popups service */
 
@@ -621,8 +632,9 @@
   top: 50%;
   left: 50%;
   max-width: 1200px;
-  width: 80%;
-  padding: 45px 25px;
+  width: 90%;
+  height: auto;
+  padding: 45px 15px;
   background: #fff;
   transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -660,6 +672,7 @@
 }
 #popups2 .tab_cont .cont {
   display: none;
+  padding-top: 25px;
 }
 #popups2 .tab_cont .cont.active {
   display: block;

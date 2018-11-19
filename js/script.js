@@ -127,4 +127,13 @@ $(function(){
     $('#popups2 .tab_cont .cont').removeClass('active');
     $('#popups2 .tab_cont .cont' + index).addClass('active');
   })
+
+  // navigation smooth scroll
+  $(".nav_menu .nav_item a").click(function(){
+    var scrollPosition = $($(this).attr("data-target")).offset().top;
+    event.preventDefault();
+    $("html,body").animate({
+      scrollTop: scrollPosition
+    }, 500);
+  })
 })
