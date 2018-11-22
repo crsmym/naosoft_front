@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
@@ -11,67 +13,169 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/slick.min.js"></script>
   <script src="js/script.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=19be4aeec801387f4e645028c1d487b9"></script>
-    <script type="text/javascript">
-	$(window).on('load', function() {
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new daum.maps.LatLng(37.497402,126.896035), //지도의 중심좌표.
-			level: 3 //지도의 레벨(확대, 축소 정도)
-		};
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8da428ca1cab906fdcd719eb6d515fc0"></script>
+  <title>나오소프트</title>
+  <style>
+    .radius_border {
+	border: 1px solid #919191;
+	border-radius: 5px;
+}
 
-		var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
-		var markerPosition  = new daum.maps.LatLng(37.49770940457292,126.89224209845406); 
-		//마커를 생성합니다
-		var marker = new daum.maps.Marker({
-		    position: markerPosition
-		});
+.custom_zoomcontrol {
+	position: absolute;
+	top: 11%;
+	right: 4%;
+	width: 36px;
+	height: 80px;
+	overflow: hidden;
+	z-index: 1;
+	background-color: #f5f5f5;
+}
 
-		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
-	})
-	</script>
-<title>나오소프트</title>
+.custom_zoomcontrol span {
+	display: block;
+	width: 36px;
+	height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.custom_zoomcontrol span img {
+	width: 19px;
+	height: 23px;
+	border: none;
+	margin: 7px;
+}
+
+.custom_zoomcontrol span:first-child {
+	border-bottom: 1px solid #bfbfbf;
+}
+</style>
+  <script type="text/javascript">
+    var map;
+    $(window).on('load', function () {
+
+      var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+      var options;
+      if (document.body.clientWidth < 768) {
+        options = { //지도를 생성할 때 필요한 기본 옵션
+          center: new daum.maps.LatLng(37.49770940457292, 126.89224209845406), //지도의 중심좌표.
+          level: 4 //지도의 레벨(확대, 축소 정도)
+        };
+      } else {
+        options = { //지도를 생성할 때 필요한 기본 옵션
+          center: new daum.maps.LatLng(37.497402, 126.896035), //지도의 중심좌표.
+          level: 3 //지도의 레벨(확대, 축소 정도)
+        };
+      }
+      map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+      map.setZoomable(false);
+
+      var imageSrc = 'images/NAO_SOFT.png', // 마커이미지의 주소입니다    
+        imageSize = new daum.maps.Size(120, 55), // 마커이미지의 크기입니다
+        imageOption = { offset: new daum.maps.Point(55, 55) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+      var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption),
+        markerPosition = new daum.maps.LatLng(37.49770940457292, 126.89224209845406); // 마커가 표시될 위치입니다
+
+      var marker = new daum.maps.Marker({
+        position: markerPosition,
+        image: markerImage // 마커이미지 설정 
+      });
+
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+    })
+    function setMapType(maptype) {
+      var roadmapControl = document.getElementById('btnRoadmap');
+      var skyviewControl = document.getElementById('btnSkyview');
+      if (maptype === 'roadmap') {
+        map.setMapTypeId(daum.maps.MapTypeId.ROADMAP);
+        roadmapControl.className = 'selected_btn';
+        skyviewControl.className = 'btn';
+      } else {
+        map.setMapTypeId(daum.maps.MapTypeId.HYBRID);
+        skyviewControl.className = 'selected_btn';
+        roadmapControl.className = 'btn';
+      }
+    }
+
+    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+    function zoomIn() {
+      map.setLevel(map.getLevel() - 1);
+    }
+
+    // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+    function zoomOut() {
+      map.setLevel(map.getLevel() + 1);
+    }
+    function fn_popup_info(type, id) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/popup.nao');
+      xhr.onreadystatechange = function () {
+        var str = xhr.responseText;
+        var info = str.split(',');
+        if (str != '') {
+          if (type == 'service') {
+            document.querySelector('#popups .main_tit').innerHTML = info[0];
+            document.querySelector('#popups .table_img').innerHTML = "<img class='is-desktop' src='" + info[1] + "'alt=''>"
+              + "<img class='is-mobile' src='" + info[2] + "'alt=''>";
+          } else if (type == 'solution') {
+            document.querySelector('#popups2 .main_tit').innerHTML = info[0];
+            document.querySelector('.cont1').innerHTML = "<img class='is-desktop' src='" + info[1] + "'alt=''>"
+              + "<img class='is-mobile' src='" + info[2] + "'alt=''>";
+            document.querySelector('.cont2').innerHTML = "<img class='is-desktop' src='" + info[3] + "'alt=''>"
+              + "<img class='is-mobile' src='" + info[4] + "'alt=''>";
+            document.querySelector('.tab_list1').innerHTML = "<a href='#'>" + info[5] + "</a>";
+            document.querySelector('.tab_list2').innerHTML = "<a href='#'>" + info[6] + "</a>";
+          }
+        }
+      }
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      var data = 0;
+      data += '&Id=' + id;
+      xhr.send(data);
+    }
+  </script>
 </head>
+
 <body>
   <div id="nao_app">
     <!-- header -->
     <div id="header">
-      <!-- desktop nav -->
       <nav class="nav is-desktop">
         <div class="wrap flex_box row">
           <h1 class="header_logo">
-            <a href="#">
+            <a href="/main">
               <img src="images/logo.png" alt="">
             </a>
           </h1>
-          <ul class="nav_menu flex_box row">
-            <li class="nav_item"><a data-target="#about" href="#">about</a></li>
-            <li class="nav_item"><a data-target="#service" href="#">service</a></li>
-            <li class="nav_item"><a data-target="#solution" href="#">solution</a></li>
-            <li class="nav_item"><a data-target="#history" href="#">history</a></li>
-            <li class="nav_item"><a data-target="#client" href="#">client</a></li>
-            <li class="nav_item"><a data-target="#contact" href="#">contact</a></li>
+          <ul class="nav_menu flex_box row" id="nav_menu">
+            <li class="nav_item" id="nav_about" data-target=".section.about" style="font-weight: 0;">
+              <a href="#">about</a></li>
+            <li class="nav_item" id="nav_service" data-target=".section.service" style="font-weight: 0;">
+              <a href="#">service</a></li>
+            <li class="nav_item" id="nav_solution" data-target=".section.solution" style="font-weight: 0;">
+              <a href="#">solution</a></li>
+            <li class="nav_item" id="nav_history" data-target=".section.history" style="font-weight: 0;">
+              <a href="#">history</a></li>
+            <li class="nav_item" id="nav_client" data-target=".section.client" style="font-weight: 0;">
+              <a href="#">client</a></li>
+            <li class="nav_item" id="nav_contact" data-target=".section.contact" style="font-weight: 0;">
+              <a href="#">contact</a></li>
           </ul>
-          <span class="company_info">
-            <a href="">
-              회사소개서             
-            </a>
+          <span class="company_info"> <a href="/file/naosoft_2018_11.pdf" download> 회사소개서 </a>
           </span>
         </div>
       </nav>
       <!-- mobile nav -->
       <nav class="nav is-mobile">
         <div class="wrap flex_box row">
-          <span class="company_info">
-            <a href="#">
-              <img src="images/company_info_img.png" alt="">             
-            </a>
+          <span class="company_info"> <a href="/file/naosoft_2018_11.pdf" download>
+              <img src="images/company_info_img.png" alt=""></a>
           </span>
           <h1 class="header_logo">
-            <a href="#">
-              <img src="images/logo.png" alt="">
-            </a>
+            <a href="#"> <img src="images/logo.png" alt=""></a>
           </h1>
           <span class="menu_btn">
             <a href="#">
@@ -89,54 +193,58 @@
       <div class="wrap">
         <div class="txt_box">
           <h2 class="title">
-            Nao is a group of <br> 
-            developers who dream.
+            Nao is a group of <br> developers who dream.
           </h2>
-          <h3 class="sub_title">
-            나오소프트는 꿈을 꾸는 개발자 그룹입니다.
-          </h3>
+          <h3 class="sub_title">나오소프트는 꿈을 꾸는 개발자 그룹입니다.</h3>
         </div>
-        <a href="" id="scroll_btn">
-          <img src="images/scroll_down.png" alt="">
-          <span>scroll</span>
-        </a>
+        <a href="#" id="scroll_btn"> <img src="images/scroll_down.png" alt=""> <span>SCROLL</span></a>
+
       </div>
     </div>
     <!-- end top visual area -->
-    
+
     <!-- main contents -->
     <div id="main">
       <div class="container">
-        
         <!-- section about -->
         <div id="about" class="section about">
           <div class="wrap">
             <div class="inner">
-              <!-- desktop -->
               <div class="flex_box row is-desktop">
                 <div class="about_img">
                   <img src="images/about/2.about_img.png" alt="">
                 </div>
                 <div class="about_txt">
                   <div class="txt_wrap">
-                    <h3 class="section_title">
-                      ABOUT NAO
-                    </h3>
+                    <h3 class="section_title">ABOUT NAO</h3>
                     <p class="txt1">
-                      Nao는 소프트웨어 개발, 웹/모바일 구축,<br>
-                      시스템 통합, 교육 서비스에 강점이 있습니다.
+                      Nao는 소프트웨어 개발, 웹/모바일 구축,<br> 시스템 통합, 교육 서비스에 강점이 있습니다.
                     </p>
                     <p class="txt2">
-                      2010년 설립 이후 SI/SM, Mobile, DB 분야의 <br>
-                      국내 최고 리더라는 자부심을 가지고 금융, 서비스, 제조, 통신 등 <br>
-                      다양한 업종의 정보시스템 구축 및 운영을 수행하고 있습니다.
+                      2010년 설립 이후 SI/SM, Mobile, DB 분야의 <br> 국내 최고 리더라는 자부심을
+                      가지고 금융, 서비스, 제조, 통신 등 <br> 다양한 업종의 정보시스템 구축 및 운영을 수행하고
+                      있습니다.
                     </p>
                   </div>
                 </div>
               </div>
               <!-- mobile -->
               <div class="m_about_cont is-mobile">
+                <div class="about_txt">
+                  <div class="txt_wrap">
+                    <h3 class="section_title">ABOUT NAO</h3>
+                    <p class="txt1">
+                      Nao는 소프트웨어 개발, 웹/모바일 구축,<br> 시스템 통합, 교육 서비스에 강점이 있습니다.
+                    </p>
+                  </div>
+                </div>
                 <img src="images/about/about_sec.png" alt="">
+                <p class="txt2">
+                  2010년 설립 이후 SI/SM, Mobile, DB 분야의 <br>
+                  국내 최고 리더라는 자부심을 가지고 금융, 서비스,<br>
+                  제조, 통신 등 다양한 업종의 정보시스템 구축 및<br>
+                  운영을 수행하고 있습니다.
+                </p>
               </div>
             </div>
           </div>
@@ -148,23 +256,42 @@
           <div class="wrap">
             <div class="inner">
               <div class="slide_container">
-                <h3 class="section_title">
-                  SERVICE
-                </h3>
+                <h3 class="section_title">SERVICE</h3>
                 <ul class="service_slide">
+
                   <li class="slide_item">
                     <div class="flex_box">
                       <div class="img_wrap">
-                        <img class="slide_img" src="images/service/edu.png" alt="">
+                        <img class="slide_img" src="images/service/sism.png" alt="">
                       </div>
                       <div class="desc">
-                        <img src="images/service/edu_icon.png" alt="" class="icon">
-                        <h4 class="type">EDUCATION</h4>
-                        <p class="info">
-                          금융, 제조 등 다양한 정보시스템 구축 <br>
-                          경험을 보유하고 있습니다.
+                        <img src="images/service/sism_icon.png" alt="" class="icon">
+                        <h4 class="type">SI/SM</h4>
+                        <p class="info is-desktop">
+                          금융, 제조 등 다양한<br>정보시스템 구축 경험을<br>보유하고 있습니다.
                         </p>
-                        <a id="edu" class="more" href="#">자세히 보기</a>
+                        <p class="info is-mobile">
+                          금융, 제조 등 다양한 정보시스템<br>구축 경험을 보유하고 있습니다.
+                        </p>
+                        <a id="sism" class="more" href="#" onclick="fn_popup_info('service',3);">자세히 보기</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="slide_item">
+                    <div class="flex_box">
+                      <div class="img_wrap">
+                        <img class="slide_img" src="images/service/mobile.png" alt="">
+                      </div>
+                      <div class="desc">
+                        <img src="images/service/mobile_icon.png" alt="" class="icon">
+                        <h4 class="type">Mobile</h4>
+                        <p class="info is-desktop">
+                          Native, Hybrid, Web app 등<br>모바일 분야 경험을<br>축적하였습니다.
+                        </p>
+                        <p class="info is-mobile">
+                          Native, Hybrid, Web app 등 <br>모바일 분야 경험을 축적하였습니다.
+                        </p>
+                        <a id="mobile" class="more" href="#" onclick="fn_popup_info('service',4);">자세히 보기</a>
                       </div>
                     </div>
                   </li>
@@ -176,126 +303,95 @@
                       <div class="desc">
                         <img src="images/service/ito_icon.png" alt="" class="icon">
                         <h4 class="type">ITO</h4>
-                        <p class="info">
-                          금융, 제조 등 다양한 정보시스템 구축 <br>
-                          경험을 보유하고 있습니다.
+                        <p class="info is-desktop">
+                          다양한 언어, 다양한 분야의<br>인재를 보유하고 있습니다.
                         </p>
-                        <a id="ito" class="more" href="#">자세히 보기</a>
+                        <p class="info is-mobile">
+                          다양한 언어, 다양한 분야의<br>인재를 보유하고 있습니다.
+                        </p>
+                        <a id="ito" class="more" href="#" onclick="fn_popup_info('service',2);">자세히 보기</a>
                       </div>
                     </div>
                   </li>
                   <li class="slide_item">
                     <div class="flex_box">
                       <div class="img_wrap">
-                        <img class="slide_img" src="images/service/sism.png" alt="">
+                        <img class="slide_img" src="images/service/edu.png" alt="">
                       </div>
                       <div class="desc">
-                        <img src="images/service/sism_icon.png" alt="" class="icon">
-                        <h4 class="type">SI/SM</h4>
-                        <p class="info">
-                          금융, 제조 등 다양한 정보시스템 구축 <br>
-                          경험을 보유하고 있습니다.
+                        <img src="images/service/edu_icon.png" alt="" class="icon">
+                        <h4 class="type">Education</h4>
+                        <p class="info is-desktop">
+                          기본기술, 신기술 등에 대한<br>기업,대학의 교육을 다수<br>수행하였습니다.
                         </p>
-                        <a id="sism" class="more" href="#">자세히 보기</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="slide_item">
-                    <div class="flex_box">
-                      <div class="img_wrap">
-                        <img class="slide_img" src="images/service/mobile.png" alt="">
-                      </div>
-                      <div class="desc">
-                        <img src="images/service/mobile_icon.png" alt="" class="icon">
-                        <h4 class="type">MOBILE</h4>
-                        <p class="info">
-                          금융, 제조 등 다양한 정보시스템 구축 <br>
-                          경험을 보유하고 있습니다.
+                        <p class="info is-mobile">
+                          기본기술, 신기술 등에 대한 기업,<br>대학의 교육을 다수 수행하였습니다.
                         </p>
-                        <a id="mobile" class="more" href="#">자세히 보기</a>
+                        <a id="edu" class="more" href="#" onclick="fn_popup_info('service',1);">자세히 보기</a>
                       </div>
                     </div>
                   </li>
                 </ul>
                 <div class="w_bg is-desktop"></div>
-              </div> 
+                <div class="b_bg is-desktop"></div>
+              </div>
             </div>
           </div>
         </div>
         <!-- end section service -->
-        
+
         <!-- section solution -->
         <div id="solution" class="section solution">
           <div class="wrap">
             <div class="inner">
-              <h3 class="section_title">
-                SOLUTION
-              </h3>
-              <!-- desktop -->
+              <h3 class="section_title">SOLUTION</h3>
               <ul class="solution_list flex_box is-desktop">
-                <li class="solution_item">
-                  <a class="shorten" href="#">
+                <li class="solution_item"><a class="shorten" href="#" onclick="fn_popup_info('solution',5);">
                     <img class="solution_img" src="images/solution/shorten.png" alt="">
                     <img class="solution_img hover" src="images/solution/shorten_hover.png" alt="">
                     <div class="desc">
                       <h4 class="type">단축 URL</h4>
                       <p class="info">
-                        복잡하고 긴 URL을 <br>
-                        단순하게 변환하는 솔루션 입니다.
+                        복잡하고 긴 URL을 <br> 단순하게 변환하는 솔루션 입니다.
                       </p>
                     </div>
-                  </a>
-                </li>
-                <li class="solution_item">
-                  <a class="voice" href="#">
+                  </a></li>
+                <li class="solution_item"><a class="voice" href="#" onclick="fn_popup_info('solution',6);">
                     <img class="solution_img" src="images/solution/voice.png" alt="">
                     <img class="solution_img hover" src="images/solution/voice_hover.png" alt="">
+
                     <div class="desc">
                       <h4 class="type">Digital Transfer</h4>
                       <p class="info">
-                        음성을 텍스트로 <br>
-                        변환하는 솔루션 입니다.
+                        음성을 텍스트로 <br> 변환하는 솔루션 입니다.
                       </p>
                     </div>
-                  </a>
-                </li>
-                <li class="solution_item">
-                  <a class="privacy" href="#">
+                  </a></li>
+                <li class="solution_item"><a class="privacy" href="#" onclick="fn_popup_info('solution',7);">
                     <img class="solution_img" src="images/solution/privacy.png" alt="">
                     <img class="solution_img hover" src="images/solution/privacy_hover.png" alt="">
                     <div class="desc">
                       <h4 class="type">개인정보 비식별화</h4>
                       <p class="info">
-                        식별 가능한 정보를 <br>
-                        비식별 처리하는 솔루션 입니다.
+                        식별 가능한 정보를 <br> 비식별 처리하는 솔루션 입니다.
                       </p>
                     </div>
-                  </a>
-                </li>
+                  </a></li>
               </ul>
               <!-- mobile -->
               <ul class="solution_list is-mobile">
-                <li>
-                  <a class="shorten" href="#">
-                    <img src="images/solution/m_shorten.png" alt="">
-                  </a>
-                </li>
-                <li>
-                  <a class="voice" href="#">
-                    <img src="images/solution/m_voice.png" alt="">
-                  </a>
-                </li>
-                  <li>
-                  <a class="privacy" href="#">
-                    <img src="images/solution/m_privacy.png" alt="">
-                  </a>
-                </li>
+                <li><a class="shorten" href="#" onclick="fn_popup_info('solution',5);"> <img src="images/solution/m_shorten.png"
+                      alt=""></a></li>
+                <li><a class="voice" href="#" onclick="fn_popup_info('solution',6);"> <img src="images/solution/m_voice.png"
+                      alt=""></a></li>
+                <li><a class="privacy" href="#" onclick="fn_popup_info('solution',7);"> <img src="images/solution/m_privacy.png"
+                      alt=""></a></li>
               </ul>
             </div>
           </div>
         </div>
         <!-- end section solution -->
-        
+
         <!-- section history -->
         <div id="history" class="section history">
           <div class="wrap">
@@ -313,59 +409,59 @@
                     <div class="history_list">
                       <ul class="history_slide">
                         <li class="history_item">
+                          <h5 class="year">2010</h5>
+                          <p class="content">
+                            ㈜ 나오소프트 법인 설립 <br>
+                            (구로구 구로동 106-4 선경오피스텔 401호)<br>
+                            <span style="display: block; padding: 5px 0;"></span>
+                            (재)경영기술개발원 산학협력 체결
+                          </p>
                           <h5 class="year">2011</h5>
                           <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
+                            전자부품연구원 중소기업 핵심직무능력향상 지원사업 협약체결<br>
+                            한국전자통신교육원 중소기업 핵심직무능력향상 지원사업 협약체결<br>
+                            한신대학교 산학협력 체결<br>
+                            싸이버로지텍 협력업체 지정<br>
+                            자본금 증자 (1차)
+                          </p>
+                        </li>
+                        <li class="history_item">
+                          <h5 class="year">2012</h5>
+                          <p class="content">
+                            한라대학교 산학협력 체결<br>
+                            밴처기업 선정 (기술보증기금 : 20120105337) <br>
+                            본사 확장 이전 (구로구 구로동 106-4 선경오피스텔 406호) <br>
+                            연구개발전담부서 인정 (한국산업기술진흥협회)<br>
+                            자본금 증자
+                          </p>
+                          <h5 class="year">2013</h5>
+                          <p class="content">
+                            KTDS 협력업체 선정
+                          </p>
+                          <h5 class="year">2014</h5>
+                          <p class="content">
+                            IBK시스템 전략협력사 선정<br>
                             S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
                           </p>
                         </li>
                         <li class="history_item">
-                          <h5 class="year">2011</h5>
+                          <h5 class="year">2015</h5>
                           <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                            KTDS 협력업체 선정
+                          </p>
+                          <h5 class="year">2016</h5>
+                          <p class="content">
+                            본사 확장 이전 (구로구 공원로 3, 501호)
                           </p>
                         </li>
                         <li class="history_item">
-                          <h5 class="year">2011</h5>
+                          <h5 class="year">2017</h5>
                           <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                            SK하이닉스 협력업체 선정
                           </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2011</h5>
+                          <h5 class="year">2018</h5>
                           <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2011</h5>
-                          <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2011</h5>
-                          <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2011</h5>
-                          <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2011</h5>
-                          <p class="content">
-                            IBK시스템 전략협력사 선정 <br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
+                            에이스화재해상보험 협력업체 선정
                           </p>
                         </li>
                       </ul>
@@ -377,94 +473,86 @@
           </div>
         </div>
         <!-- end section history -->
-        
+
+
         <!-- section client -->
         <div id="client" class="section client">
           <div class="wrap">
             <div class="inner">
-              <h3 class="section_title">
-                  CLIENT
-              </h3>     
+              <h3 class="section_title">CLIENT</h3>
               <div class="slide_container">
                 <ul class="client_slide">
                   <li class="client_item">
                     <div class="clients">
                       <ul class="flex_box">
                         <li><img src="images/client/oracle.png" alt=""></li>
-                        <li><img src="images/client/lg_cns.png" alt=""></li>
+                        <li><img src="images/client/lg.png" alt=""></li>
                         <li><img src="images/client/samsung.png" alt=""></li>
                         <li><img src="images/client/neowiz.png" alt=""></li>
                         <li><img src="images/client/ibk.png" alt=""></li>
                         <li><img src="images/client/scania.png" alt=""></li>
+                        <li><img src="images/client/star.png" alt=""></li>
                         <li><img src="images/client/sk.png" alt=""></li>
                         <li><img src="images/client/lg_cns.png" alt=""></li>
-                        <li><img src="images/client/eusu.png" alt=""></li>
                       </ul>
                     </div>
                   </li>
                   <li class="client_item">
                     <div class="clients">
                       <ul class="flex_box">
-                        <li><img src="images/client/oracle.png" alt=""></li>
-                        <li><img src="images/client/lg_cns.png" alt=""></li>
-                        <li><img src="images/client/samsung.png" alt=""></li>
-                        <li><img src="images/client/neowiz.png" alt=""></li>
-                        <li><img src="images/client/ibk.png" alt=""></li>
-                        <li><img src="images/client/scania.png" alt=""></li>
-                        <li><img src="images/client/sk.png" alt=""></li>
-                        <li><img src="images/client/lg_cns.png" alt=""></li>
                         <li><img src="images/client/eusu.png" alt=""></li>
+                        <li><img src="images/client/bicns.png" alt=""></li>
+                        <li><img src="images/client/kimi.png" alt=""></li>
+                        <li><img src="images/client/chemessen.png" alt=""></li>
+                        <li><img src="images/client/ent.png" alt=""></li>
+                        <li><img src="images/client/hanshin.png" alt=""></li>
+                        <li><img src="images/client/kmi.png" alt=""></li>
                       </ul>
                     </div>
                   </li>
                 </ul>
-              </div>         
+              </div>
             </div>
-          </div>  
+          </div>
         </div>
         <!-- end section client -->
-        
+
         <!-- section contact -->
         <div id="contact" class="section contact">
           <div class="wrap">
-            <h3 class="section_title is-mobile">
-              CONTACT
-            </h3>
+            <h3 class="section_title is-mobile">CONTACT</h3>
             <div class="inner">
-              <div id="map" style="width:100%;">
-                
+              <div id="map" style="width:100%;"></div>
+              <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+              <div class="custom_zoomcontrol radius_border">
+                <span onclick="zoomIn()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
+                    alt="확대"></span>
+                <span onclick="zoomOut()"><img src="http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
+                    alt="축소"></span>
               </div>
               <div class="contact_info">
-                <h3 class="section_title is-desktop">
-                  CONTACT
-                </h3>
+                <h3 class="section_title is-desktop" style="color: #FFFFFF;">CONTACT</h3>
                 <p class="tel">
-                  <span>Tel</span>
-                  <span>02-6341-7001</span>
+                  <span>Tel</span> <span>02-6341-7001</span>
                 </p>
                 <p class="address">
-                  <span>Address</span>
-                  <span>서울특별시 구로구 공원로 3 403호</span>
+                  <span>Address</span> <span>서울특별시 구로구 공원로 3 403호</span>
                 </p>
                 <p class="fax">
-                  <span>Fax</span>
-                  <span>02-6241-7002</span>
+                  <span>Fax</span> <span>02-6241-7002</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
         <!-- end section contact -->
-      
       </div>
     </div>
     <!-- end main contents -->
 
     <!-- footer -->
     <div id="footer">
-      <p class="copyright">
-        Copyright (c) 2014 NAOSOFT. All right Reserved
-      </p>
+      <p class="copyright">Copyright (c) 2014 NAOSOFT. All right Reserved</p>
     </div>
     <!-- end footer -->
 
@@ -472,75 +560,53 @@
     <div id="dim" class="is-mobile"></div>
     <div id="m_menu_list" class="is-mobile">
       <ul>
-        <li class="menu_li">
-          <a href="#about">about</a>
-        </li>
-        <li class="menu_li">
-          <a href="#service">service</a>
-        </li>
-        <li class="menu_li">
-          <a href="#solution">solution</a>
-        </li>
-        <li class="menu_li">
-          <a href="#history">history</a>
-        </li>
-        <li class="menu_li">
-          <a href="#client">client</a>
-        </li>
-        <li class="menu_li">
-          <a href="#contact">contact</a>
-        </li>
+        <li class="menu_li"><a href="#about">about</a></li>
+        <li class="menu_li"><a href="#service">service</a></li>
+        <li class="menu_li"><a href="#solution">solution</a></li>
+        <li class="menu_li"><a href="#history">history</a></li>
+        <li class="menu_li"><a href="#client">client</a></li>
+        <li class="menu_li"><a href="#contact">contact</a></li>
       </ul>
     </div>
-    <a href="#" class="btn_top">
-      <img src="images/top_btn.png" alt="위로가기">
-    </a>
+    <a href="#" class="btn_top"> <img src="images/top_btn.png" alt="위로가기"></a>
   </div>
   <!-- popups service-->
   <div id="popups_bg">
     <div id="popups">
-      <span class="sub_tit">
-        Service
-      </span>
+      <span class="sub_tit"> Service </span>
       <h3 class="main_tit"></h3>
       <p class="message">
         하단의 내용이외에도 다수<span class="service_type"></span>프로젝트들을 수행했습니다.
       </p>
-      <div class="table_img">
-        <img class="is-desktop" src="images/service/sism_pop.png" alt="">
-        <img class="is-mobile" src="images/service/m_sism_pop.png" alt="">
-      </div>
-      <a href="#" class="pop_close">
-        <img src="images/close_btn.png" alt="">
-      </a>
+      <div class="table_img"></div>
+      <a href="#" class="pop_close"> <img src="images/close_btn.png" alt=""></a>
     </div>
-  </div>  
+  </div>
   <!-- end  popups service-->
-  
+
   <!-- popups solution -->
   <div id="popups_bg2">
     <div id="popups2">
-      <span class="sub_tit">Solution</span>
+      <span class="sub_tit"> Solution </span>
       <h3 class="main_tit">개인정보 비식별화</h3>
       <ul class="tab_menu flex_box">
         <li class="tab_list tab_list1 active"><a href="#">개인정보 비식별화 소개</a></li>
-        <li class="tab_list tab_list1"><a href="#">개인정보 비식별화 적용</a></li>
+        <li class="tab_list tab_list2"><a href="#">개인정보 비식별화 적용</a></li>
       </ul>
       <div class="tab_cont">
         <div class="cont cont1 active">
-          <img class="is-desktop" src="images/solution/privacy_pop1.png" alt="">
-          <img class="is-mobile" src="images/solution/m_privacy_pop1.png" alt="">
+          <img class="is-desktop" src="images/solution/info/privacy.png" alt="">
+          <img class="is-mobile" src="images/solution/info/m_privacy.png" alt="">
         </div>
         <div class="cont cont2">
-          <img class="is-desktop" src="images/solution/m_privacy_pop2.png" alt="">
-          <img class="is-mobile" src="images/solution/m_privacy_pop2.png" alt="">
+          <img class="is-desktop" src="images/solution/info/privacy2.png" alt="">
+          <img class="is-mobile" src="images/solution/info/m_privacy2.png" alt="">
         </div>
       </div>
-      <a href="#" class="pop_close">
-        <img src="images/close_btn.png" alt="">
-      </a>
+      <a href="#" class="pop_close"> <img src="images/close_btn.png" alt=""></a>
     </div>
   </div>
   <!-- en popups solution -->
 </body>
+
 </html>

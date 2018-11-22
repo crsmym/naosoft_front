@@ -1,9 +1,31 @@
+/* IE10+ */
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+  /* Enter your style code */
+  .nav .wrap .header_logo a {
+    color: transparent;
+  }
+  #scroll_btn {
+    color: transparent;
+  }
+  .solution_list .solution_item a {
+    color: transparent;
+  }
+  .btn_top.on {
+    color: transparent;
+  }
+  .pop_close {
+    color: transparent;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
 *, body {
   margin: 0;
   padding: 0;
+  font-family: 'Noto Sans',sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6,ul,li,p {

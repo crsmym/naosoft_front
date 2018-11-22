@@ -15,7 +15,7 @@
     font-size: 19px;
   }
   .service_slide .slide_item .desc .more {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 /*  max-width 1200px */
@@ -28,13 +28,12 @@
     margin-left: 3%;
   }
   .nav .wrap .company_info a {
-    padding: 10px 0 10px 14%;
     font-size: 15px;
-    text-align: left;
-    background: #4880a1 url(../images/download_btn.png) 87% 44% no-repeat;
+    text-align: center;
+    background:  url(../images/download_btn_hover.png) 87% 44% no-repeat;
   }
   .nav .wrap .company_info a:hover {
-    background: url(../images/download_btn_hover.png) 87% 44% no-repeat;
+    background: #4880a1 url(../images/download_btn.png) 87% 44% no-repeat;
   }
 }
 /* adjust service slide tool */
@@ -47,7 +46,7 @@
     font-size: 20px;
   }
   .about_txt .txt_wrap .txt2 {
-    margin-top: 5%;
+    margin-top: 12%;
     padding: 25px 27px;
   }
   .service .wrap .section_title {
@@ -83,7 +82,7 @@
     box-shadow: none;
   }
   .nav.is-mobile .wrap .company_info a img {
-    max-width: 110px;
+    max-width: 115px;
     width: 100%;
   }
   .nav.is-mobile .wrap .header_logo {
@@ -102,7 +101,7 @@
     text-align: right;
   }
   .nav.is-mobile .wrap .menu_btn a {
-    max-width: 25px;
+    max-width: 30px;
     display: inline-block;
   }
   .nav.is-mobile .wrap .menu_btn a img {
@@ -111,6 +110,7 @@
   }
   .nav.is-mobile .wrap .menu_btn a img.close {
     display: none;
+    width: 21px;
   }
   
   /*----- end header area -----*/
@@ -127,17 +127,59 @@
     font-size: 4vw;
   }
   #scroll_btn {
-    top: 88%;
+    top: 85%;
   }
   /*----- end top visual area -----*/
   
+  /*----- main common -----*/
+  #main .section_title {
+    font-size: 32px;
+  }
+  /*----- end main common -----*/
+  
   /*----- about area -----*/
   .about .wrap {
-    padding: 60px 10px;
+    padding: 26px 20px 4px;
+    overflow: hidden;
+  }
+  .about .wrap .inner .about_txt {
+    width: 100%;
+  }
+  .about .wrap .inner .about_txt .txt_wrap {
+    position: static;
+  }
+  .about_txt .txt_wrap .section_title {
+    padding: 20px 0 10px;
+    text-align: center;
+  }
+  .about_txt .txt_wrap .txt1 {
+    padding: 0 0 30px 0;
+    text-align: center;
+    font-size: 18px;
+  }
+  .about_txt .txt_wrap .txt1::after {
+    left: 48%;
+    bottom: -19px;
+  }
+  .m_about_cont .txt2 {
+    background-color: #dcf5ff;
+    padding: 5% 10% 5% 5%;
+    font-size: 3.2vw;
+    line-height: 147%;
+    position: relative;
+    top: -51px;
+    right: -40px;
+  }
+  .m_about_cont .txt2 br {
+    display: none;
   }
   /*----- end about area -----*/
   
   /*----- service area -----*/
+  .service .wrap .section_title {
+    position: static;
+    text-align: center;
+  }
   .service .wrap .slide_container {
     padding: 35px 0;
   }
@@ -154,14 +196,21 @@
     background-color: #fff;
     text-align: center;
   }
+  .service_slide .slide_item .desc .type {
+    padding-top: 0;
+    font-size: 6vw;
+  }
   .service_slide .slide_item .desc .icon {
     display: none;
   }
   .service_slide .slide_item .desc .info {
-    font-size: 4.5vw;
+    font-size: 4.3vw;
+    line-height: 133%
   }
   .service_slide .slide_item .desc .more {
-    font-size: 3.5vw;
+    font-size: 3.8vw;
+    padding: 4% 11%;
+    margin-top: 5%;
   }
   .service_slide .slide_item .desc .type::before {
     display: none;
@@ -206,6 +255,14 @@
   .history .wrap .slide_container .slide_wrap {
     padding: 0 0 0 30px;
   }
+  .history_list .slick-prev {
+    background-size: 40px;
+    top: -46px;
+  }
+  .history_list .slick-next {
+    background-size: 40px;
+    bottom: -46px;
+  }
   /*----- end history area -----*/
 
   /*----- client area -----*/
@@ -214,6 +271,7 @@
   }
   .clients ul li img {
     max-width: 95px;
+    padding: 15px 0;
   }
   /*----- end client area -----*/
 
@@ -237,7 +295,8 @@
     -o-transform: translate(0,0)  ;
 }
   .contact_info p {
-    padding-left: 65px;
+    padding-left: 58px;
+    margin-top: 24px;
   }
   .contact_info p span:first-child {
     font-size: 17px;
@@ -263,8 +322,9 @@
     background: url(../images/contact/m_fax_icon.png) left center no-repeat;
     background-size: 45px;
   }
+   
   #map {
-    height: 30vh;
+    height: 40vh;
   }
   /*----- end contact area -----*/
 
@@ -280,7 +340,7 @@
   }
   #m_menu_list {
     position: fixed;
-    top: 63px;
+    top: 52px;
     bottom: 0;
     right: -290px;
     max-width: 290px;
@@ -306,25 +366,41 @@
   }
   .btn_top.on {
     right: 10px;
-    bottom: 90px !important;
+    bottom: 60px !important;
     opacity: 1;
   }
   #popups {
     width: 90%;
-    height: 80%;
-    overflow: scroll;
-    padding: 45px 11px;
+    height: 75%;
+    padding: 25px 15px;
   }
+  #popups .pop_close {
+    top: 28px;
+    right: 15px;
+  }
+  
   #popups2 {
     width: 90%;
-    height: 80%;
-    overflow: scroll;
-    padding: 45px 11px;
+    padding: 45px 15px;
   }
   #popups2 .tab_list a {
-    font-size: 3.7vw;
+    font-size: 14px;
+    padding: 12px 0;
   }
-  .pop_close img {
-    max-width: 18px;
+  #popups2 .pop_close {
+    top: 16px;
+    right: 18px;
+  }
+  #popups2 .main_tit {
+    padding: 10px 0 15px;
+  }
+  #popups2 .tab_cont .cont {
+    padding-top: 39px;
+  }
+}
+
+@media (max-width:378px) {
+  .m_about_cont .txt2 {
+    font-size: 14px;
   }
 }
