@@ -60,12 +60,13 @@
       if (document.body.clientWidth < 768) {
         options = { //지도를 생성할 때 필요한 기본 옵션
           center: new daum.maps.LatLng(37.49770940457292, 126.89224209845406), //지도의 중심좌표.
-          level: 4 //지도의 레벨(확대, 축소 정도)
+          level: 5 //지도의 레벨(확대, 축소 정도)
         };
       } else {
+
         options = { //지도를 생성할 때 필요한 기본 옵션
-          center: new daum.maps.LatLng(37.497402, 126.896035), //지도의 중심좌표.
-          level: 3 //지도의 레벨(확대, 축소 정도)
+          center: new daum.maps.LatLng(37.496, 126.899), //지도의 중심좌표.
+          level: 4 //지도의 레벨(확대, 축소 정도)
         };
       }
       map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -73,7 +74,9 @@
 
       var imageSrc = 'images/NAO_SOFT.png', // 마커이미지의 주소입니다    
         imageSize = new daum.maps.Size(120, 55), // 마커이미지의 크기입니다
-        imageOption = { offset: new daum.maps.Point(55, 55) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+        imageOption = {
+          offset: new daum.maps.Point(55, 55)
+        }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
       var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption),
         markerPosition = new daum.maps.LatLng(37.49770940457292, 126.89224209845406); // 마커가 표시될 위치입니다
@@ -86,6 +89,7 @@
       // 마커가 지도 위에 표시되도록 설정합니다
       marker.setMap(map);
     })
+
     function setMapType(maptype) {
       var roadmapControl = document.getElementById('btnRoadmap');
       var skyviewControl = document.getElementById('btnSkyview');
@@ -109,6 +113,7 @@
     function zoomOut() {
       map.setLevel(map.getLevel() + 1);
     }
+
     function fn_popup_info(type, id) {
       var xhr = new XMLHttpRequest();
       xhr.open('POST', '/popup.nao');
@@ -118,14 +123,15 @@
         if (str != '') {
           if (type == 'service') {
             document.querySelector('#popups .main_tit').innerHTML = info[0];
-            document.querySelector('#popups .table_img').innerHTML = "<img class='is-desktop' src='" + info[1] + "'alt=''>"
-              + "<img class='is-mobile' src='" + info[2] + "'alt=''>";
+            document.querySelector('#popups .table_img').innerHTML = "<img class='is-desktop' src='" + info[1] +
+              "'alt=''>" +
+              "<img class='is-mobile' src='" + info[2] + "'alt=''>";
           } else if (type == 'solution') {
             document.querySelector('#popups2 .main_tit').innerHTML = info[0];
-            document.querySelector('.cont1').innerHTML = "<img class='is-desktop' src='" + info[1] + "'alt=''>"
-              + "<img class='is-mobile' src='" + info[2] + "'alt=''>";
-            document.querySelector('.cont2').innerHTML = "<img class='is-desktop' src='" + info[3] + "'alt=''>"
-              + "<img class='is-mobile' src='" + info[4] + "'alt=''>";
+            document.querySelector('.cont1').innerHTML = "<img class='is-desktop' src='" + info[1] + "'alt=''>" +
+              "<img class='is-mobile' src='" + info[2] + "'alt=''>";
+            document.querySelector('.cont2').innerHTML = "<img class='is-desktop' src='" + info[3] + "'alt=''>" +
+              "<img class='is-mobile' src='" + info[4] + "'alt=''>";
             document.querySelector('.tab_list1').innerHTML = "<a href='#'>" + info[5] + "</a>";
             document.querySelector('.tab_list2').innerHTML = "<a href='#'>" + info[6] + "</a>";
           }
@@ -151,18 +157,12 @@
             </a>
           </h1>
           <ul class="nav_menu flex_box row" id="nav_menu">
-            <li class="nav_item" id="nav_about" data-target=".section.about" style="font-weight: 0;">
-              <a href="#">about</a></li>
-            <li class="nav_item" id="nav_service" data-target=".section.service" style="font-weight: 0;">
-              <a href="#">service</a></li>
-            <li class="nav_item" id="nav_solution" data-target=".section.solution" style="font-weight: 0;">
-              <a href="#">solution</a></li>
-            <li class="nav_item" id="nav_history" data-target=".section.history" style="font-weight: 0;">
-              <a href="#">history</a></li>
-            <li class="nav_item" id="nav_client" data-target=".section.client" style="font-weight: 0;">
-              <a href="#">client</a></li>
-            <li class="nav_item" id="nav_contact" data-target=".section.contact" style="font-weight: 0;">
-              <a href="#">contact</a></li>
+            <li class="nav_item" id="nav_about" data-target=".section.about"><a href="#about">about</a></li>
+            <li class="nav_item" id="nav_service" data-target=".section.service"><a href="#service">service</a></li>
+            <li class="nav_item" id="nav_solution" data-target=".section.solution"><a href="#solution">solution</a></li>
+            <li class="nav_item" id="nav_history" data-target=".section.history"><a href="#history">history</a></li>
+            <li class="nav_item" id="nav_client" data-target=".section.client"><a href="#client">client</a></li>
+            <li class="nav_item" id="nav_contact" data-target=".section.contact"><a href="#contact">contact</a></li>
           </ul>
           <span class="company_info"> <a href="/file/naosoft_2018_11.pdf" download> 회사소개서 </a>
           </span>
@@ -409,59 +409,66 @@
                     <div class="history_list">
                       <ul class="history_slide">
                         <li class="history_item">
+                          <h5 class="year">2018</h5>
+                          <p class="content">
+                            에이스화재해상보험 협력업체 선정
+                          </p>
+                          <h5 class="year">2017</h5>
+                          <p class="content">
+                            SK하이닉스 협력업체 선정
+                          </p>
+                          <h5 class="year">2016</h5>
+                          <p class="content">
+                            본사 확장 이전 (구로구 공원로 3, 501호)
+                          </p>
+                          <h5 class="year">2015</h5>
+                          <p class="content">
+                            KTDS 협력업체 선정
+                          </p>
+                        </li>
+                        <li class="history_item">
+                          <h5 class="year">2014</h5>
+                          <p class="content">
+                            IBK시스템 전략협력사 선정<br>
+                            <span style="display: block; padding: 5px 0;"></span>
+                            S/W융합기술연구소 인정 <br>(한국산업기술진흥협회 :2014114393)
+                          </p>
+                          <h5 class="year">2013</h5>
+                          <p class="content">
+                            KTDS 협력업체 선정
+                          </p>
+                          <h5 class="year">2012</h5>
+                          <p class="content">
+                            한라대학교 산학협력 체결
+                            <span style="display: block; padding: 5px 0;"></span>
+                            밴처기업 선정 (기술보증기금 : 20120105337) 
+                            <span style="display: block; padding: 5px 0;"></span>
+                            본사 확장 이전 <br>(구로구 구로동 106-4 선경오피스텔 406호) 
+                            <span style="display: block; padding: 5px 0;"></span>
+                            연구개발전담부서 인정 (한국산업기술진흥협회) 
+                            <span style="display: block; padding: 5px 0;"></span>
+                            자본금 증자
+                          </p>
+                        </li>
+                        <li class="history_item">
+                          <h5 class="year">2011</h5>
+                          <p class="content">
+                            전자부품연구원 중소기업 핵심직무능력향상 <br>지원사업 협약체결
+                            <span style="display: block; padding: 5px 0;"></span>
+                            한국전자통신교육원 중소기업 핵심직무능력향상 <br>지원사업 협약체결<br>
+                            <span style="display: block; padding: 5px 0;"></span>
+                            한신대학교 산학협력 체결<br>
+                            <span style="display: block; padding: 5px 0;"></span>
+                            싸이버로지텍 협력업체 지정<br>
+                            <span style="display: block; padding: 5px 0;"></span>
+                            자본금 증자 (1차)
+                          </p>
                           <h5 class="year">2010</h5>
                           <p class="content">
                             ㈜ 나오소프트 법인 설립 <br>
                             (구로구 구로동 106-4 선경오피스텔 401호)<br>
                             <span style="display: block; padding: 5px 0;"></span>
                             (재)경영기술개발원 산학협력 체결
-                          </p>
-                          <h5 class="year">2011</h5>
-                          <p class="content">
-                            전자부품연구원 중소기업 핵심직무능력향상 지원사업 협약체결<br>
-                            한국전자통신교육원 중소기업 핵심직무능력향상 지원사업 협약체결<br>
-                            한신대학교 산학협력 체결<br>
-                            싸이버로지텍 협력업체 지정<br>
-                            자본금 증자 (1차)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2012</h5>
-                          <p class="content">
-                            한라대학교 산학협력 체결<br>
-                            밴처기업 선정 (기술보증기금 : 20120105337) <br>
-                            본사 확장 이전 (구로구 구로동 106-4 선경오피스텔 406호) <br>
-                            연구개발전담부서 인정 (한국산업기술진흥협회)<br>
-                            자본금 증자
-                          </p>
-                          <h5 class="year">2013</h5>
-                          <p class="content">
-                            KTDS 협력업체 선정
-                          </p>
-                          <h5 class="year">2014</h5>
-                          <p class="content">
-                            IBK시스템 전략협력사 선정<br>
-                            S/W융합기술연구소 인정 (한국산업기술진흥협회 :2014114393)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2015</h5>
-                          <p class="content">
-                            KTDS 협력업체 선정
-                          </p>
-                          <h5 class="year">2016</h5>
-                          <p class="content">
-                            본사 확장 이전 (구로구 공원로 3, 501호)
-                          </p>
-                        </li>
-                        <li class="history_item">
-                          <h5 class="year">2017</h5>
-                          <p class="content">
-                            SK하이닉스 협력업체 선정
-                          </p>
-                          <h5 class="year">2018</h5>
-                          <p class="content">
-                            에이스화재해상보험 협력업체 선정
                           </p>
                         </li>
                       </ul>
@@ -536,10 +543,10 @@
                   <span>Tel</span> <span>02-6341-7001</span>
                 </p>
                 <p class="address">
-                  <span>Address</span> <span>서울특별시 구로구 공원로 3 403호</span>
+                  <span>Address</span> <span>서울시 구로구 공원로 3, 501호 (구로동, 선경오피스텔)</span>
                 </p>
                 <p class="fax">
-                  <span>Fax</span> <span>02-6241-7002</span>
+                  <span>Fax</span> <span>02-6341-7002</span>
                 </p>
               </div>
             </div>
@@ -552,7 +559,7 @@
 
     <!-- footer -->
     <div id="footer">
-      <p class="copyright">Copyright (c) 2014 NAOSOFT. All right Reserved</p>
+      <p class="copyright">Copyright (c) 2018 NAOSOFT. All right Reserved</p>
     </div>
     <!-- end footer -->
 

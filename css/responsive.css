@@ -253,16 +253,41 @@
     padding-bottom: 25px;
   }
   .history .wrap .slide_container .slide_wrap {
-    padding: 0 0 0 30px;
+    padding: 0 35px;
+  }
+  .history_list {
+    padding: 0;
+  }
+  .history_item {
+    padding: 40px 10px 40px 35px;  
+    outline: none;
+  }
+  .history_item::after {
+    display: none;
+  }
+  .history_item .year {
+    padding-top: 13px;
+  }
+  .history_item .year::after {
+    top: 21px;
+    left: -16px;
+  }
+  .history_list .slick-arrow {
+    top: 42%;
+    padding: 15px 20px;
   }
   .history_list .slick-prev {
-    background-size: 40px;
-    top: -46px;
-  }
+    left: -26px;
+    background: url(../images/history/left.png) center no-repeat;
+    background-size: 33px;    
+} 
   .history_list .slick-next {
-    background-size: 40px;
-    bottom: -46px;
-  }
+    bottom: auto;
+    left: auto;
+    right: -26px;
+    background: url(../images/history/right.png) center no-repeat;
+    background-size: 33px;
+}
   /*----- end history area -----*/
 
   /*----- client area -----*/

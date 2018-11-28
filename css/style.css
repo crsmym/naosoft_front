@@ -54,6 +54,9 @@
   font-weight: bold;
   cursor: pointer;
 }
+.nav_menu .nav_item .active {
+   font-weight: bold;
+}
 .nav .wrap .company_info {
   width: 13%;
   margin-left: 6%;
@@ -412,7 +415,7 @@
   background: none;
   text-indent: -99999px;
   padding: 20px 25px;
-  z-index: 9888;
+  z-index: 6666;
   left: -13px;
   outline: none;
 }
@@ -427,10 +430,16 @@
   bottom: -40px;
 }
 .history_item {
-  padding: 0 0 0 35px;
+  padding: 10% 0 10% 35px;
+}
+.history_item:nth-child(2) {
+  padding: 0 0 3% 35px;
+}
+.history_item:nth-child(3) {
+  padding: 1% 0 0 35px;
 }
 .history_item .year {
-  padding-top: 20px;
+  padding-top: 15px;
   position: relative;
   font-size: 21.5px;
   font-weight: bold;
@@ -453,8 +462,8 @@
   -o-border-radius: 50%;
 }
 .history_item .content {
-  padding: 10px 0;
-  font-size: 15.5px;
+  padding: 8px 0;
+  font-size: 15px;
   line-height: 1.58;
   letter-spacing: -0.4px;
   text-align: left;

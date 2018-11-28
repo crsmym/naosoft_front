@@ -8,9 +8,9 @@
   #scroll_btn {
     color: transparent;
   }
-  .solution_list .solution_item a {
-    color: transparent;
-  }
+  /* .solution_list .solution_item > a {
+    color: #fff;
+  } */
   .btn_top.on {
     color: transparent;
   }
