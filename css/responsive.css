@@ -259,7 +259,15 @@
     padding: 0;
   }
   .history_item {
-    padding: 40px 10px 40px 35px;  
+    padding: 3% 10px 3% 35px;  
+    outline: none;
+  }
+  .history_item:nth-child(2) {
+    padding: 3% 10px 3% 35px;  
+    outline: none;
+  }
+  .history_item:nth-child(3) {
+    padding: 3% 0 3% 35px;  
     outline: none;
   }
   .history_item::after {

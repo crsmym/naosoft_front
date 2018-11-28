@@ -430,13 +430,14 @@
   bottom: -40px;
 }
 .history_item {
-  padding: 10% 0 10% 35px;
+  min-height: 460px;
+  padding: 45px 0 45px 35px;
 }
 .history_item:nth-child(2) {
-  padding: 0 0 3% 35px;
+  padding: 5px 0 5px 35px;
 }
 .history_item:nth-child(3) {
-  padding: 1% 0 0 35px;
+  padding: 27px 0 27px 35px;
 }
 .history_item .year {
   padding-top: 15px;
