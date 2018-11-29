@@ -94,6 +94,12 @@ $(window).on('load', function() {
 		$('#dim').animate({
 			right: '-100%'
 		}, 200)
+		var scrollPosition = $($(this).children("a").attr("href")).offset().top - 64;
+		var section1s = document.getElementsByClassName("nav_item");
+
+		$("html, body").animate({
+			scrollTop: scrollPosition
+		}, 500);
 	})
 
 	// menu bar navigaiter 
@@ -193,7 +199,7 @@ $(window).on('load', function() {
 			scrollTop : $(".container").offset().top - 64
 		}, 1300);
 	})
-	$(".nav_menu li").click(function() {
+	$(".nav_menu li").click(function () {
 		var scrollPosition = $($(this).attr("data-target")).offset().top - 64;
 		var section1s = document.getElementsByClassName("nav_item");
 
