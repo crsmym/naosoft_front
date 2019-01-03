@@ -409,12 +409,20 @@
     padding: 25px 15px;
   }
   #popups_bg .pop_close {
-    top: 9%;
+    position: fixed;
+    top: 8%;
     right: 5%;
   }
+  #popups_bg .pop_close img {
+    max-width: 25px;
+  }
   #popups_bg2 .pop_close {
-    top: 4%;
+    position: fixed;
+    top: 3.5%;
     right: 5%;
+  }
+  #popups_bg2 .pop_close img {
+    max-width: 25px;
   }
   
   #popups2 {
