@@ -123,9 +123,10 @@
         if (str != '') {
           if (type == 'service') {
             document.querySelector('#popups .main_tit').innerHTML = info[0];
-            document.querySelector('#popups .table_img').innerHTML = "<img class='is-desktop' src='" + info[1] +
-              "'alt=''>" +
-              "<img class='is-mobile' src='" + info[2] + "'alt=''>";
+            // document.querySelector('#popups .table_img').innerHTML = "<img class='is-desktop' src='" + info[1] +
+            //   "'alt=''>" +
+            //   "<img class='is-mobile' src='" + info[2] + "'alt=''>";
+            document.querySelector('#popups .table').innerHTML = "<iframe src='" + info[3] + "' frameborder='0'></iframe>";
           } else if (type == 'solution') {
             document.querySelector('#popups2 .main_tit').innerHTML = info[0];
             document.querySelector('.cont1').innerHTML = "<img class='is-desktop' src='" + info[1] + "'alt=''>" +
@@ -441,11 +442,11 @@
                           <p class="content">
                             한라대학교 산학협력 체결
                             <span style="display: block; padding: 5px 0;"></span>
-                            밴처기업 선정 (기술보증기금 : 20120105337) 
+                            밴처기업 선정 (기술보증기금 : 20120105337)
                             <span style="display: block; padding: 5px 0;"></span>
-                            본사 확장 이전 <br>(구로구 구로동 106-4 선경오피스텔 406호) 
+                            본사 확장 이전 <br>(구로구 구로동 106-4 선경오피스텔 406호)
                             <span style="display: block; padding: 5px 0;"></span>
-                            연구개발전담부서 인정 (한국산업기술진흥협회) 
+                            연구개발전담부서 인정 (한국산업기술진흥협회)
                             <span style="display: block; padding: 5px 0;"></span>
                             자본금 증자
                           </p>
@@ -585,7 +586,9 @@
       <p class="message">
         하단의 내용이외에도 다수<span class="service_type"></span>프로젝트들을 수행했습니다.
       </p>
-      <div class="table_img"></div>
+      <div class="table">
+        <iframe src="service/edu_pop.html" frameborder="0"></iframe>
+      </div>
       <a href="#" class="pop_close"> <img src="images/close_btn.png" alt=""></a>
     </div>
   </div>
