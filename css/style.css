@@ -762,12 +762,20 @@
 /* end popups solution */
 
 /* popups common */
-.pop_close {
-  position: absolute;
-  top:45px;
-  right: 50px;
+#popups_bg .pop_close {
+  position: fixed;
+  top: 10%;
+  right: 10%;
 }
-.pop_close img {
+#popups_bg .pop_close img {
+  max-width: 25px;
+}
+#popups_bg2 .pop_close {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+}
+#popups_bg2 .pop_close img {
   max-width: 25px;
 }
 /* end popups common */

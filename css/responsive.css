@@ -408,9 +408,13 @@
     height: 75%;
     padding: 25px 15px;
   }
-  #popups .pop_close {
-    top: 28px;
-    right: 15px;
+  #popups_bg .pop_close {
+    top: 9%;
+    right: 5%;
+  }
+  #popups_bg2 .pop_close {
+    top: 4%;
+    right: 5%;
   }
   
   #popups2 {
@@ -420,10 +424,6 @@
   #popups2 .tab_list a {
     font-size: 14px;
     padding: 12px 0;
-  }
-  #popups2 .pop_close {
-    top: 16px;
-    right: 18px;
   }
   #popups2 .main_tit {
     padding: 10px 0 15px;

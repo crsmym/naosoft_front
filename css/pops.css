@@ -43,6 +43,6 @@ table tr td:last-child {
   }
   table tr td:last-child {
     text-align: center;
-    padding: 20px 2% 20px 0;
+    padding: 20px 15px;
   }
 }
